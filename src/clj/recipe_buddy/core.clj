@@ -1,9 +1,9 @@
-(ns api.core
+(ns recipe-buddy.core
   (:require
-   [api.handler :as handler]
-   [api.nrepl :as nrepl]
+   [recipe-buddy.handler :as handler]
+   [recipe-buddy.nrepl :as nrepl]
    [luminus.http-server :as http]
-   [api.config :refer [env]]
+   [recipe-buddy.config :refer [env]]
    [clojure.tools.cli :refer [parse-opts]]
    [clojure.tools.logging :as log]
    [mount.core :as mount])

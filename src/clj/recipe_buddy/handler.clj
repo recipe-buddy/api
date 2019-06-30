@@ -1,12 +1,14 @@
-(ns api.handler
+(ns recipe-buddy.handler
   (:require
-   [api.middleware :as middleware]
-   [api.layout :refer [error-page]]
-   [api.routes.home :refer [home-routes]]
+   [recipe-buddy.middleware :as middleware]
+   [recipe-buddy.layout :refer [error-page]]
+   [recipe-buddy.routes.home :refer [home-routes]]
+   [recipe-buddy.routes.services :refer [service-routes]]
+   [reitit.swagger-ui :as swagger-ui]
    [reitit.ring :as ring]
    [ring.middleware.content-type :refer [wrap-content-type]]
    [ring.middleware.webjars :refer [wrap-webjars]]
-   [api.env :refer [defaults]]
+   [recipe-buddy.env :refer [defaults]]
    [mount.core :as mount]))
 
 (mount/defstate init-app
@@ -17,8 +19,13 @@
   :start
   (ring/ring-handler
    (ring/router
-    [(home-routes)])
+    [(home-routes)
+     (service-routes)])
    (ring/routes
+    (swagger-ui/create-swagger-ui-handler
+     {:path   "/swagger-ui"
+      :url    "/api/swagger.json"
+      :config {:validator-url nil}})
     (ring/create-resource-handler
      {:path "/"})
     (wrap-content-type

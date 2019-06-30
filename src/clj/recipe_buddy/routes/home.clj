@@ -1,8 +1,8 @@
-(ns api.routes.home
+(ns recipe-buddy.routes.home
   (:require
-   [api.layout :as layout]
+   [recipe-buddy.layout :as layout]
    [clojure.java.io :as io]
-   [api.middleware :as middleware]
+   [recipe-buddy.middleware :as middleware]
    [ring.util.http-response :as response]))
 
 (defn home-page [request]

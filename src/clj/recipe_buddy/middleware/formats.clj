@@ -1,4 +1,4 @@
-(ns api.middleware.formats
+(ns recipe-buddy.middleware.formats
   (:require
    [cognitect.transit :as transit]
    [luminus-transit.time :as time]

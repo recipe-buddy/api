@@ -1,14 +1,14 @@
-(ns api.middleware
+(ns recipe-buddy.middleware
   (:require
-   [api.env :refer [defaults]]
+   [recipe-buddy.env :refer [defaults]]
    [cheshire.generate :as cheshire]
    [cognitect.transit :as transit]
    [clojure.tools.logging :as log]
-   [api.layout :refer [error-page]]
+   [recipe-buddy.layout :refer [error-page]]
    [ring.middleware.anti-forgery :refer [wrap-anti-forgery]]
-   [api.middleware.formats :as formats]
+   [recipe-buddy.middleware.formats :as formats]
    [muuntaja.middleware :refer [wrap-format wrap-params]]
-   [api.config :refer [env]]
+   [recipe-buddy.config :refer [env]]
    [ring-ttl-session.core :refer [ttl-memory-store]]
    [ring.middleware.defaults :refer [site-defaults wrap-defaults]])
   (:import))

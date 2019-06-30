@@ -1,4 +1,4 @@
-(defproject api "0.1.0-SNAPSHOT"
+(defproject recipe-buddy "0.1.0-SNAPSHOT"
 
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
@@ -34,14 +34,14 @@
   :test-paths ["test/clj"]
   :resource-paths ["resources"]
   :target-path "target/%s/"
-  :main ^:skip-aot api.core
+  :main ^:skip-aot recipe-buddy.core
 
   :plugins []
 
   :profiles
   {:uberjar {:omit-source true
              :aot :all
-             :uberjar-name "api.jar"
+             :uberjar-name "recipe-buddy.jar"
              :source-paths ["env/prod/clj"]
              :resource-paths ["env/prod/resources"]}
 

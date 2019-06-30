@@ -2,9 +2,9 @@
 <configuration>
     <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>log/api.log</file>
+        <file>log/recipe-buddy.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>log/api.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>log/recipe-buddy.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>100MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>

@@ -4,7 +4,7 @@ This page will help guide you through the first steps of building your site.
 
 #### Why are you seeing this page?
 
-The `home-routes` handler in the `api.routes.home` namespace
+The `home-routes` handler in the `recipe-buddy.routes.home` namespace
 defines the route that invokes the `home-page` function whenever an HTTP
 request is made to the `/` URI using the `GET` method.
 
@@ -20,7 +20,7 @@ request is made to the `/` URI using the `GET` method.
 The `home-routes` are wrapped with two middleware functions. The first enables CSRF protection.
 The second takes care of serializing and deserializing various encoding formats, such as JSON.
 
-The `home-page` function will in turn call the `api.layout/render` function
+The `home-page` function will in turn call the `recipe-buddy.layout/render` function
 to render the HTML content:
 
 ```
@@ -47,7 +47,7 @@ The HTML templates are written using [Selmer](https://github.com/yogthos/Selmer)
 
 #### Organizing the routes
 
-The routes are aggregated and wrapped with middleware in the `api.handler` namespace:
+The routes are aggregated and wrapped with middleware in the `recipe-buddy.handler` namespace:
 
 ```
 (mount/defstate app
@@ -77,12 +77,12 @@ A default route group is added to handle the `404`, `405`, and `406` errors.
 
 #### Managing your middleware
 
-Request middleware functions are located under the `api.middleware` namespace.
+Request middleware functions are located under the `recipe-buddy.middleware` namespace.
 
 This namespace is reserved for any custom middleware for the application. Some default middleware is
 already defined here. The middleware is assembled in the `wrap-base` function.
 
-Middleware used for development is placed in the `api.dev-middleware` namespace found in
+Middleware used for development is placed in the `recipe-buddy.dev-middleware` namespace found in
 the `env/dev/clj/` source path.
 
 <a class="btn btn-primary" href="http://www.luminusweb.net/docs/middleware.md">learn more about middleware »</a>

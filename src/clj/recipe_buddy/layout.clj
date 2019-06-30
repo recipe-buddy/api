@@ -1,4 +1,4 @@
-(ns api.layout
+(ns recipe-buddy.layout
   (:require
    [selmer.parser :as parser]
    [selmer.filters :as filters]

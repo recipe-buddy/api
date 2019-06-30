@@ -1,4 +1,4 @@
-(ns api.nrepl
+(ns recipe-buddy.nrepl
   (:require
    [nrepl.server :as nrepl]
    [clojure.tools.logging :as log]))

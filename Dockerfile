@@ -1,7 +1,7 @@
 FROM openjdk:8-alpine
 
-COPY target/uberjar/api.jar /api/app.jar
+COPY target/uberjar/recipe-buddy.jar /recipe-buddy/app.jar
 
 EXPOSE 3000
 
-CMD ["java", "-jar", "/api/app.jar"]
+CMD ["java", "-jar", "/recipe-buddy/app.jar"]
