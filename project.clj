@@ -1,7 +1,7 @@
 (defproject recipe-buddy "0.1.0-SNAPSHOT"
 
-  :description "FIXME: write description"
-  :url "http://example.com/FIXME"
+  :description "Recipe Buddy API"
+  :url "https://github.com/recipe-buddy/api"
 
   :dependencies [[ch.qos.logback/logback-classic "1.2.3"]
                  [cheshire "5.8.1"]
