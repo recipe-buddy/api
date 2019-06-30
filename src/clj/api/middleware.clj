@@ -1,18 +1,17 @@
 (ns api.middleware
   (:require
-    [api.env :refer [defaults]]
-    [cheshire.generate :as cheshire]
-    [cognitect.transit :as transit]
-    [clojure.tools.logging :as log]
-    [api.layout :refer [error-page]]
-    [ring.middleware.anti-forgery :refer [wrap-anti-forgery]]
-    [api.middleware.formats :as formats]
-    [muuntaja.middleware :refer [wrap-format wrap-params]]
-    [api.config :refer [env]]
-    [ring-ttl-session.core :refer [ttl-memory-store]]
-    [ring.middleware.defaults :refer [site-defaults wrap-defaults]])
-  (:import 
-           ))
+   [api.env :refer [defaults]]
+   [cheshire.generate :as cheshire]
+   [cognitect.transit :as transit]
+   [clojure.tools.logging :as log]
+   [api.layout :refer [error-page]]
+   [ring.middleware.anti-forgery :refer [wrap-anti-forgery]]
+   [api.middleware.formats :as formats]
+   [muuntaja.middleware :refer [wrap-format wrap-params]]
+   [api.config :refer [env]]
+   [ring-ttl-session.core :refer [ttl-memory-store]]
+   [ring.middleware.defaults :refer [site-defaults wrap-defaults]])
+  (:import))
 
 (defn wrap-internal-error [handler]
   (fn [req]
@@ -26,11 +25,11 @@
 
 (defn wrap-csrf [handler]
   (wrap-anti-forgery
-    handler
-    {:error-response
-     (error-page
-       {:status 403
-        :title "Invalid anti-forgery token"})}))
+   handler
+   {:error-response
+    (error-page
+     {:status 403
+      :title "Invalid anti-forgery token"})}))
 
 
 (defn wrap-formats [handler]
@@ -43,7 +42,7 @@
 (defn wrap-base [handler]
   (-> ((:middleware defaults) handler)
       (wrap-defaults
-        (-> site-defaults
-            (assoc-in [:security :anti-forgery] false)
-            (assoc-in  [:session :store] (ttl-memory-store (* 60 30)))))
+       (-> site-defaults
+           (assoc-in [:security :anti-forgery] false)
+           (assoc-in  [:session :store] (ttl-memory-store (* 60 30)))))
       wrap-internal-error))

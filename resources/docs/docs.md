@@ -33,9 +33,7 @@ The `render` function will render the `home.html` template found in the `resourc
 folder using a parameter map containing the `:docs` key. This key points to the
 contents of the `resources/docs/docs.md` file containing these instructions.
 
-
 The HTML templates are written using [Selmer](https://github.com/yogthos/Selmer) templating engine.
-
 
 ```
 <div class="row">
@@ -46,8 +44,6 @@ The HTML templates are written using [Selmer](https://github.com/yogthos/Selmer)
 ```
 
 <a class="btn btn-primary" href="http://www.luminusweb.net/docs/html_templating.md">learn more about HTML templating »</a>
-
-
 
 #### Organizing the routes
 
@@ -90,9 +86,6 @@ Middleware used for development is placed in the `api.dev-middleware` namespace 
 the `env/dev/clj/` source path.
 
 <a class="btn btn-primary" href="http://www.luminusweb.net/docs/middleware.md">learn more about middleware »</a>
-
-
-
 
 #### Need some help?
 

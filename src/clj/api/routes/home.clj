@@ -1,9 +1,9 @@
 (ns api.routes.home
   (:require
-    [api.layout :as layout]
-    [clojure.java.io :as io]
-    [api.middleware :as middleware]
-    [ring.util.http-response :as response]))
+   [api.layout :as layout]
+   [clojure.java.io :as io]
+   [api.middleware :as middleware]
+   [ring.util.http-response :as response]))
 
 (defn home-page [request]
   (layout/render request "home.html" {:docs (-> "docs/docs.md" io/resource slurp)}))

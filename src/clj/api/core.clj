@@ -1,12 +1,12 @@
 (ns api.core
   (:require
-    [api.handler :as handler]
-    [api.nrepl :as nrepl]
-    [luminus.http-server :as http]
-    [api.config :refer [env]]
-    [clojure.tools.cli :refer [parse-opts]]
-    [clojure.tools.logging :as log]
-    [mount.core :as mount])
+   [api.handler :as handler]
+   [api.nrepl :as nrepl]
+   [luminus.http-server :as http]
+   [api.config :refer [env]]
+   [clojure.tools.cli :refer [parse-opts]]
+   [clojure.tools.logging :as log]
+   [mount.core :as mount])
   (:gen-class))
 
 (def cli-options
@@ -16,10 +16,10 @@
 (mount/defstate ^{:on-reload :noop} http-server
   :start
   (http/start
-    (-> env
-        (assoc  :handler (handler/app))
-        (update :io-threads #(or % (* 2 (.availableProcessors (Runtime/getRuntime)))))
-        (update :port #(or (-> env :options :port) %))))
+   (-> env
+       (assoc  :handler (handler/app))
+       (update :io-threads #(or % (* 2 (.availableProcessors (Runtime/getRuntime)))))
+       (update :port #(or (-> env :options :port) %))))
   :stop
   (http/stop http-server))
 
